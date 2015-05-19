@@ -28,16 +28,16 @@ public:
 
     diagnostic_msgs::DiagnosticArray diagnostics;
     diagnostic_msgs::DiagnosticStatus controller_mgr_status;
-    controller_mgr_status.name  = "Functionalities:control:controller_manager";
+    controller_mgr_status.name  = "Control:controller_manager";
     if(!res)
     {
       controller_mgr_status.level = diagnostic_msgs::DiagnosticStatus::ERROR;
-      controller_mgr_status.message = "service call failed";
+      controller_mgr_status.message = "not responding";
     }
     else
     {
       controller_mgr_status.level = diagnostic_msgs::DiagnosticStatus::OK;
-      controller_mgr_status.message = "service call succeded";
+      controller_mgr_status.message = "running";
     }
     diagnostics.status.push_back(controller_mgr_status);
 
@@ -46,7 +46,7 @@ public:
       for( unsigned int i=0; i < resp.controller.size(); ++i)
       {
         diagnostic_msgs::DiagnosticStatus controller_status;
-        controller_status.name  = std::string("Functionalities:control:controller_manager:controllers:") + resp.controller.at(i).name;
+        controller_status.name  = std::string("Control:controllers:") + resp.controller.at(i).name;
         controller_status.message = resp.controller.at(i).state;
         controller_status.level = (resp.controller.at(i).state == std::string("running") ) ?
               diagnostic_msgs::DiagnosticStatus::OK : diagnostic_msgs::DiagnosticStatus::ERROR;
@@ -93,7 +93,6 @@ main(int argc, char** argv)
   while(ros::ok())
   {
     control_monitor.run();
-    ros::spinOnce();
     rate.sleep();
   }
 
