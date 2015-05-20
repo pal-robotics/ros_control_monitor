@@ -16,7 +16,7 @@ public:
   RosControlMonitor(ros::NodeHandle &nh)
   {
 
-    diagnosticPublisher_ = nh.advertise<diagnostic_msgs::DiagnosticArray>("/diagnostics",10,false);
+    diagnosticPublisher_ = nh.advertise<diagnostic_msgs::DiagnosticArray>("/diagnostics",1,false);
     srvClient_ = nh.serviceClient<controller_manager_msgs::ListControllers>("/controller_manager/list_controllers", true);
     while(!srvClient_.waitForExistence(ros::Duration(10.0)))
     {
@@ -97,7 +97,7 @@ main(int argc, char** argv)
   sleep(2.0);
   RosControlMonitor control_monitor(nh);
 
-  ros::Rate rate(0.2);
+  ros::Rate rate(1.0);
   while(ros::ok())
   {
     control_monitor.run();
