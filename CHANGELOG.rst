@@ -2,8 +2,8 @@
 Changelog for package ros_control_monitor
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.0.2 (2015-05-20)
+------------------
 * Fix problem with persistent service client during bringup in simulation
 * Contributors: Luca Marchionni
 
