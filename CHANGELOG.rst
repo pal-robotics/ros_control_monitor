@@ -2,8 +2,8 @@
 Changelog for package ros_control_monitor
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.1.0 (2016-04-05)
+------------------
 * Fixed compilation issue
 * Reducing topic publisher queue size and set rate to 1 sec
 * Contributors: Hilario Tome, Luca Marchionni
