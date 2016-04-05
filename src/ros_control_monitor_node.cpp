@@ -56,8 +56,17 @@ public:
         diagnostic_msgs::DiagnosticStatus controller_status;
         controller_status.name  = std::string("Control:controllers:") + resp.controller.at(i).name;
         controller_status.message = resp.controller.at(i).state;
-        controller_status.level = (resp.controller.at(i).state == std::string("running") ) ?
-              diagnostic_msgs::DiagnosticStatus::OK : diagnostic_msgs::DiagnosticStatus::ERROR;
+
+        /// @todo this warning is treated as an error
+//        controller_status.level = (resp.controller.at(i).state == std::string("running") ) ?
+//              diagnostic_msgs::DiagnosticStatus::OK : diagnostic_msgs::DiagnosticStatus::ERROR;
+        if((resp.controller.at(i).state == std::string("running") )){
+           controller_status.level = diagnostic_msgs::DiagnosticStatus::OK;
+        }
+        else{
+           controller_status.level = diagnostic_msgs::DiagnosticStatus::ERROR;
+        }
+
         diagnostic_msgs::KeyValue value;
         value.key = "type";
         value.value = resp.controller.at(i).type;
