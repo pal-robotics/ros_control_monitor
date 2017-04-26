@@ -67,22 +67,25 @@ public:
            controller_status.level = diagnostic_msgs::DiagnosticStatus::ERROR;
         }
 
+
+        /// @todo this needs to be finished in order to reflect support for multiple interfaces
         diagnostic_msgs::KeyValue value;
         value.key = "type";
         value.value = resp.controller.at(i).type;
         controller_status.values.push_back(value);
 
         value.key = "hardware_interface";
-        value.value = resp.controller.at(i).hardware_interface;
+        value.value = resp.controller.at(i).claimed_resources[0].hardware_interface;
         controller_status.values.push_back(value);
 
         std::string resources;
-        for (unsigned int j=0; j< resp.controller.at(i).resources.size(); ++j)
+        for (unsigned int j=0; j< resp.controller.at(i).claimed_resources[0].resources.size(); ++j)
         {
-          resources += resp.controller.at(i).resources.at(j) + std::string(", ");
+          resources += resp.controller.at(i).claimed_resources[0].resources.at(j) + std::string(", ");
         }
         value.key = "resources";
         value.value = resources;
+
         controller_status.values.push_back(value);
 
         diagnostics.status.push_back(controller_status);
