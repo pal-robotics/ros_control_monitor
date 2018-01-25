@@ -2,6 +2,11 @@
 Changelog for package ros_control_monitor
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* added support for kinetic ros_control, multiple hardware interfaces per controller
+* Contributors: Hilario Tome
+
 0.1.0 (2016-04-05)
 ------------------
 * Fixed compilation issue
