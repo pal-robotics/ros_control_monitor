@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package>
   <name>ros_control_monitor</name>
-  <version>0.1.0</version>
+  <version>0.1.1</version>
   <description>The ros_control_monitor package</description>
 
   <maintainer email="luca.marchionni@pal-robotics.com">Luca marchionni</maintainer>
