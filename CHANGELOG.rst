@@ -2,8 +2,8 @@
 Changelog for package ros_control_monitor
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.1.2 (2019-11-06)
+------------------
 * Add SYSTEM to include_directories
 * Contributors: Victor Lopez
 
