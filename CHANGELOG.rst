@@ -2,6 +2,11 @@
 Changelog for package ros_control_monitor
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Add SYSTEM to include_directories
+* Contributors: Victor Lopez
+
 0.1.1 (2018-01-25)
 ------------------
 * added support for kinetic ros_control, multiple hardware interfaces per controller
