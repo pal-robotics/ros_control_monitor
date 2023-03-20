@@ -2,8 +2,8 @@
 Changelog for package ros_control_monitor
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.1.3 (2023-03-20)
+------------------
 * Merge branch 'fix-segfault-for-nonclaimed-controllers' into 'erbium-devel'
   Fix the segmentation fault for the controllers with no resources
   See merge request control/ros_control_monitor!1
