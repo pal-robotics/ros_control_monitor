@@ -74,20 +74,32 @@ public:
         value.value = resp.controller.at(i).type;
         controller_status.values.push_back(value);
 
-        value.key = "hardware_interface";
-        value.value = resp.controller.at(i).claimed_resources[0].hardware_interface;
-        controller_status.values.push_back(value);
-
-        std::string resources;
-        for (unsigned int j=0; j< resp.controller.at(i).claimed_resources[0].resources.size(); ++j)
+        if(!resp.controller.at(i).claimed_resources.empty())
         {
-          resources += resp.controller.at(i).claimed_resources[0].resources.at(j) + std::string(", ");
+          value.key = "hardware_interface";
+          value.value = resp.controller.at(i).claimed_resources[0].hardware_interface;
+          controller_status.values.push_back(value);
+
+          std::string resources;
+          for (unsigned int j=0; j< resp.controller.at(i).claimed_resources[0].resources.size(); ++j)
+          {
+            resources += resp.controller.at(i).claimed_resources[0].resources.at(j) + std::string(", ");
+          }
+          value.key = "resources";
+          value.value = resources;
+
+          controller_status.values.push_back(value);
         }
-        value.key = "resources";
-        value.value = resources;
+        else
+        {
+          value.key = "hardware_interface"; 
+          value.value = "";
+          controller_status.values.push_back(value);
 
-        controller_status.values.push_back(value);
-
+          value.key = "resources";
+          controller_status.values.push_back(value);
+        }
+        
         diagnostics.status.push_back(controller_status);
       }
     }
